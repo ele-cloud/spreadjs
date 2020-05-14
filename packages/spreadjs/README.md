@@ -139,4 +139,3 @@ excel.exportFunc(json, { filename: '自定义文件名称.xlsx', pako: true }).t
 ```javascript
 import { GC, Excel } from '@ele-cloud/spreadjs';
 ```
-
