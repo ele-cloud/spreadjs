@@ -11,7 +11,7 @@ const excelIo = new Excel.IO();
  * @param {String} b64data.
  * @return {Object} return Blob object.
  */
-function base64ToBlob(b64data, contentType, sliceSize) {
+function base64ToBlob (b64data, contentType, sliceSize) {
   sliceSize || (sliceSize = 512);
   return new Promise((resolve, reject) => {
     // 使用 atob() 方法将数据解码
@@ -39,7 +39,7 @@ function base64ToBlob(b64data, contentType, sliceSize) {
  * @param {String} suffix.
  * @return {String} return Filled string.
  */
-function fillSuffix(target, suffix) {
+function fillSuffix (target, suffix) {
   if (!target.includes(suffix)) {
     return target + '.' + suffix
   } else {
@@ -53,9 +53,9 @@ function fillSuffix(target, suffix) {
  * @param {Object} options 选项.
  * @return {String} return Promise.
  */
-function exportFunc(data, options = { filename: '未命名文件.xlsx', pako: false }) {
+function exportFunc (data, options = { filename: '未命名文件.xlsx', pako: false }) {
   return new Promise((resolve, reject) => {
-    function download(json, fileName) {
+    function download (json, fileName) {
       fileName = fillSuffix(fileName, 'xlsx');
       excelIo.save(json, (blob) => {
         // 使用 npm faie-server 替代原生写法
@@ -81,7 +81,7 @@ function exportFunc(data, options = { filename: '未命名文件.xlsx', pako: fa
         reject(e);
       });
     }
-
+    
     if (options.pako) {
       const reader = new FileReader();
       reader.onload = e => {
@@ -103,39 +103,50 @@ function exportFunc(data, options = { filename: '未命名文件.xlsx', pako: fa
  * @param {Object} options 选项.
  * @return {String} return Promise.
  */
-function importFunc(type, options = { tagId: false, pako: false }) {
+function importFunc (type, options = { tagId: false, pako: false }) {
   return new Promise((resolve, reject) => {
-    function uploadFile(event) {
+    function uploadFile (event) {
       const file = event.target.files[0];
       if (file && validFile(file)) {
-        excelIo.open(file, (json) => {
-          if (options.tagId) {
-            const dom = document.createElement('div');
-            const workbook = new GC.Spread.Sheets.Workbook(dom);
-            workbook.fromJSON(json);
-            json = addWorkBookTag(workbook);
+        // 获取文件后缀
+        const fileType = file.name.substr(file.name.lastIndexOf('.') + 1).toLowerCase();
+        if (fileType === 'xlsx') {
+          excelIo.open(file, (json) => {
+            if (options.tagId) {
+              const dom = document.createElement('div');
+              const workbook = new GC.Spread.Sheets.Workbook(dom);
+              workbook.fromJSON(json);
+              json = addWorkBookTag(workbook);
+            }
+            
+            if (options.pako) {
+              resolve({ json: btoa(pako.gzip(JSON.stringify(json), { to: 'string' })), filename: file.name });
+            } else {
+              resolve({ json, filename: file.name });
+            }
+          }, (e) => {
+            reject(e);
+          });
+        } else {
+          var reader = new FileReader();
+          reader.onload = (e) => {
+            var json = e.target.result;
+            resolve({ json: btoa(pako.gzip(json, { to: 'string' })), filename: file.name });
           }
-
-          if (options.pako) {
-            resolve({ json: btoa(pako.gzip(JSON.stringify(json), { to: 'string' })), filename: file.name });
-          } else {
-            resolve({ json, filename: file.name });
-          }
-        }, (e) => {
-          reject(e);
-        });
+          reader.readAsText(file);
+        }
       } else {
         reject(`请上传类型为${type}的文件`);
       }
     }
-
-    function validFile(file) {
+    
+    function validFile (file) {
       const fileName = file.name;
       const fileType = fileName.substr(fileName.lastIndexOf('.') + 1).toLowerCase();
-      const typeList = type.toLowerCase().split(',');
+      const typeList = type;
       return typeList.indexOf(fileType) >= 0;
     }
-
+    
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.style.display = 'none';
