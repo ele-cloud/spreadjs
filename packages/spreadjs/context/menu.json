@@ -1,0 +1,35 @@
+[
+  {
+    "text": "插入...",
+    "name": "insertDialog",
+    "command": "insertDialog",
+    "workArea": "viewport"
+  },
+  {
+    "text": "删除...",
+    "name": "deleteDialog",
+    "command": "deleteDialog",
+    "workArea": "viewport"
+  },
+  {
+    "text": "清除内容",
+    "name": "clearContent",
+    "command": "clearContent",
+    "workArea": "viewport"
+  },
+  { "type": "separator" },
+  {
+    "text": "筛选",
+    "name": "filter",
+    "command": "filter",
+    "workArea": "viewport"
+  },
+  { "type": "separator" },
+  {
+    "text": "设置单元格格式...",
+    "name": "formatCells",
+    "command": "formatCells",
+    "workArea": "viewport"
+  },
+  { "type": "separator" }
+]
