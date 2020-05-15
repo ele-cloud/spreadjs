@@ -42,7 +42,7 @@ export default {
         clickCell: {},
         visibleCellColorPicker: false,
         visibleCellBgColorPicker: false,
-        tipsDelay: 1000,
+        tipsDelay: 0,
         listOptions: '',
         listValidatorVisible: false,
         viewport: 'large' // small default large
