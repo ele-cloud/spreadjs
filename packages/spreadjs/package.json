@@ -1,6 +1,6 @@
 {
   "name": "@ele-cloud/spreadjs",
-  "version": "13.2.1",
+  "version": "13.2.2",
   "description": "大象慧云spreadjs",
   "main": "src/index.js",
   "scripts": {
