@@ -76,7 +76,7 @@ function initSpread(dom, json = {}, options = {}) {
   exceldom = dom || exceldom;
   GC.Spread.Common.CultureManager.culture('zh-cn');
   workbook = new GC.Spread.Sheets.Workbook(dom);
-  json.activeSheetIndex = 0;
+  // json.activeSheetIndex = 0;
   workbook.fromJSON(json, { doNotRecalculateAfterLoad: true });
   processNode = $(`
     <div class="cssProgress">
