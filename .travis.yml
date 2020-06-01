@@ -15,7 +15,7 @@ deploy:
   api_key: $NPM_TOKEN
   on:
     tags: true
-    repo: @ele-cloud/spreadjs
+    repo: ele-cloud/spreadjs
   skip_cleanup: true
 
 after_deploy:
