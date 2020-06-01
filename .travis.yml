@@ -1,0 +1,22 @@
+language: node_js
+
+if: tag IS present
+
+node_js:
+  - 11.10.1
+
+install:
+  #- npm install
+
+deploy:
+  provider: npm
+  edge: true
+  email: $NPM_EMAIL
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
+    repo: @ele-cloud/spreadjs
+  skip_cleanup: true
+
+after_deploy:
+  - echo npm published!😊

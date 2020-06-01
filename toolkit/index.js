@@ -10,9 +10,6 @@ import Toolkit from './main.vue';
 import { Button, Select, Input, Option, Dropdown, DropdownMenu, DropdownItem, Icon, ButtonGroup, ColorPicker, Tooltip, Poptip } from 'iview';
 import 'iview/dist/styles/iview.css';
 
-import { GC, workbook } from '../src/init';
-import { formatterOptions, fontOptions, fontsizeOptions } from '../src/options';
-
 /**
  * method toolkit for spreadjs.
  * @param {Object} dom The dom that toolkit will be rendered.

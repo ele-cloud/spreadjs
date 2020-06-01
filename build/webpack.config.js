@@ -3,18 +3,18 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const vueLoaderConfig = require('./vue-loader.conf');
 const { VueLoaderPlugin } = require('vue-loader')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, '../packages/spreadjs/lib'),
-    publicPath: './',
+    path: path.resolve(__dirname, '../lib'),
+    publicPath: '/dist/',
     filename: 'index.js',
-    chunkFilename: '[id].js',
+    chunkFilename: '[name].js',
     // libraryExport: 'default',
-    // library: 'ELE-SREADJS',
-    library: '',
+    library: 'ELE-SPREADJS',
     libraryTarget: 'commonjs2'
   },
   optimization: {
@@ -27,6 +27,9 @@ module.exports = {
         }
       })
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.vue', '.json']
   },
   module: {
     rules: [
@@ -50,7 +53,8 @@ module.exports = {
             ["import", {
               "libraryName": "iview",
               "libraryDirectory": "src/components"
-            }]
+            }],
+            "@babel/plugin-syntax-dynamic-import"
           ]
         }
       },
@@ -83,6 +87,7 @@ module.exports = {
   },
   plugins: [
     new ProgressBarPlugin(),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new FriendlyErrorsWebpackPlugin()
   ]
 }

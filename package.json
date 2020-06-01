@@ -1,20 +1,31 @@
 {
-  "name": "root",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "name": "@ele-cloud/spreadjs",
+  "version": "13.2.3",
+  "description": "SpreadJS for DaXiangHuiYun.",
+  "main": "lib/index.js",
   "scripts": {
-    "readme": "node build/bin/readme.js",
-    "build": "rimraf packages/spreadjs/lib && cross-env NODE_ENV=production webpack --config build/webpack.config.js && node build/bin/readme.js",
-    "build:source": "node build/bin/source.js"
+    "prepublish": "echo \"nothing\""
   },
-  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ele-cloud/spreadjs.git"
+  },
+  "keywords": [
+    "spreadjs"
+  ],
+  "author": "Angus Yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ele-cloud/spreadjs/issues"
+  },
+  "homepage": "https://github.com/ele-cloud/spreadjs#readme",
+  "compileDependencies": [
+    "iview"
+  ],
   "peerDependencies": {
-    "@grapecity/spread-excelio": "^13.0.7",
-    "@grapecity/spread-sheets": "^13.0.7",
-    "@grapecity/spread-sheets-print": "^13.0.7",
-    "@grapecity/spread-sheets-resources-zh": "^13.0.7",
     "file-saver": "^2.0.2",
     "iview": "^3.5.4",
     "jquery": "^3.5.0",
@@ -34,6 +45,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^3.3.0",
     "file-loader": "^6.0.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "lerna": "^3.20.2",
     "less-loader": "^5.0.0",
     "postcss-loader": "^3.0.0",
