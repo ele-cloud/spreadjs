@@ -2,12 +2,13 @@
   "name": "@ele-cloud/spreadjs",
   "version": "13.3.0",
   "description": "SpreadJS for DaXiangHuiYun.",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "files": [
     "context",
     "src",
     "toolkit",
-    "style"
+    "style",
+    "legacy"
   ],
   "scripts": {
     "prepublish": "echo \"nothing\""
