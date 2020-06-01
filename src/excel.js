@@ -1,10 +1,8 @@
-import GC from '@grapecity/spread-sheets';
-import Excel from '@grapecity/spread-excelio';
 import pako from 'pako';
 import FaverSaver from 'file-saver';
 import addWorkBookTag from '../legacy/tagId';
 
-const excelIo = new Excel.IO();
+const excelIo = new GC.Spread.Excel.IO();
 
 /**
  * base64 to blob.
@@ -81,7 +79,7 @@ function exportFunc (data, options = { filename: '未命名文件.xlsx', pako: f
         reject(e);
       });
     }
-    
+
     if (options.pako) {
       const reader = new FileReader();
       reader.onload = e => {
@@ -118,7 +116,7 @@ function importFunc (type, options = { tagId: false, pako: false }) {
               workbook.fromJSON(json);
               json = addWorkBookTag(workbook);
             }
-            
+
             if (options.pako) {
               resolve({ json: btoa(pako.gzip(JSON.stringify(json), { to: 'string' })), filename: file.name });
             } else {
@@ -139,14 +137,14 @@ function importFunc (type, options = { tagId: false, pako: false }) {
         reject(`请上传类型为${type}的文件`);
       }
     }
-    
+
     function validFile (file) {
       const fileName = file.name;
       const fileType = fileName.substr(fileName.lastIndexOf('.') + 1).toLowerCase();
       const typeList = type;
       return typeList.indexOf(fileType) >= 0;
     }
-    
+
     const fileInput = document.createElement('input');
     fileInput.type = 'file';
     fileInput.style.display = 'none';

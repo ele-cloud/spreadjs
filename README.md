@@ -2,83 +2,29 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@ele-cloud/spreadjs"><img alt="npm" src="https://img.shields.io/npm/v/@ele-cloud/spreadjs"></a>
 </p>
-🦑 **为大象慧云spreadjs打造功能性的封装，让前端只需专注业务开发，无需了解spreadjs繁琐的配置。**
-
-#### **关于后编译**
-
-由于 gcexcel 过大，并且引入了 vue, iview 使得整体体积超过 7mb, 如果此时 package 预先编译, 项目中继续引用并二次编译，会造成大量冗余代码，导致项目卡顿严重。所以我们将编译完全交由项目自身去处理。
+🦑  **为大象慧云spreadjs打造功能性的封装，让前端只需专注业务开发，无需了解spreadjs繁琐的配置。**
 
 # 准备工作
 
-### 后编译
+### 依赖引入
 
-1. 后编译安装
+```html
+<link rel="styleSheet" href="gc.spread.sheets.xx.x.x.css" />
 
-```bash
-npm install webpack-post-compile-plugin
-```
-
-2. webpack config file
-
-```javascript
-const PostCompilePlugin = require('webpack-post-compile-plugin');
-
-module.exports = {
-  // ...
-  plugins: [
-    new PostCompilePlugin()
-  ]
-}
-```
-
-3. package.json
-
-```json
-{
- "compileDependencies": ["@ele-cloud/spreadjs"],
-}
-```
-
-### iview 按需引入
-
-1. babel-plugin-import 安装
-
-```bash
-npm install babel-plugin-import -D
-```
-
-2. .babelrc
-
-```javascript
-plugin: [
-  // ...
-  ["import", {
-    "libraryName": "iview",
-    "libraryDirectory": "src/components"
-  }]
-]
+<!-- spread core -->
+<script src="gc.spread.sheets.all.xx.x.x.min.js" type="text/javascript"></script>
+<!-- spread excel -->
+<script src="gc.spread.excelio.xx.x.x.min.js" type="text/javascript"></script>
+<!-- spread language -->
+<script src="gc.spread.sheets.resources.zh.xx.x.x.min.js" type="text/javascript"></script>
+<!-- spread print -->
+<script src="gc.spread.sheets.print.xx.x.x.min.js" type="text/javascript"></script>
 ```
 
 # 安装
 
 ```bash
 npm install @ele-cloud/spreadjs
-```
-
-Peer Dependencies:
-
-```json
-{
-  "@grapecity/spread-excelio": "^13.0.7",
-  "@grapecity/spread-sheets": "^13.0.7",
-  "@grapecity/spread-sheets-print": "^13.0.7",
-  "@grapecity/spread-sheets-resources-zh": "^13.0.7",
-  "file-saver": "^2.0.2",
-  "iview": "^3.5.4",
-  "jquery": "^3.5.0",
-  "pako": "^1.0.10",
-  "vue": "^2.5.2"
-}
 ```
 
 # 快速应用

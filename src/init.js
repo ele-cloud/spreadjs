@@ -1,9 +1,6 @@
-import GC from '@grapecity/spread-sheets';
-import Excel from '@grapecity/spread-excelio';
-import ZH from '@grapecity/spread-sheets-resources-zh';
-import '@grapecity/spread-sheets-print';
+const GC = window.GC;
+const Excel = window.GC.Spread.Excel;
 import $ from 'jquery';
-import '@grapecity/spread-sheets/styles/gc.spread.sheets.excel2013white.css';
 import '../style/cssprogress.css';
 import context from '../context';
 import comment from './comment';

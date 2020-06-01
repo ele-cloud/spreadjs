@@ -161,8 +161,8 @@
   import scientific from './formatCells/scientific';
   import texts from './formatCells/text';
   import special from './formatCells/special';
-  import GC from '@grapecity/spread-sheets';
   import {whichFormatBelong} from '../src/utils';
+  const GC = window.GC;
 
   const menus = require('./menu.json');
 
