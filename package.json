@@ -3,6 +3,12 @@
   "version": "13.3.0",
   "description": "SpreadJS for DaXiangHuiYun.",
   "main": "lib/index.js",
+  "files": [
+    "context",
+    "src",
+    "toolkit",
+    "style"
+  ],
   "scripts": {
     "prepublish": "echo \"nothing\""
   },
