@@ -42,6 +42,48 @@ export default {
         clickCell: {},
         visibleCellColorPicker: false,
         visibleCellBgColorPicker: false,
+        colors: [
+          {
+            key: 'FFFFFF',
+            value: '白色'
+          },
+          {
+            key: '000000',
+            value: '黑色'
+          },
+          {
+            key: 'EE7976',
+            value: '粉色'
+          },
+          {
+            key: 'FF9900',
+            value: '橙色'
+          },
+          {
+            key: 'FFD900',
+            value: '黄色'
+          },
+          {
+            key: 'F4F4F5',
+            value: '灰色'
+          },
+          {
+            key: 'A3E043',
+            value: '绿色'
+          },
+          {
+            key: '37D9F0',
+            value: '天蓝色'
+          },
+          {
+            key: '4DA8EE',
+            value: '深蓝色'
+          },
+          {
+            key: '956FE7',
+            value: '紫色'
+          }
+        ],
         tipsDelay: 0,
         listOptions: '',
         listValidatorVisible: false,
@@ -865,6 +907,7 @@ export default {
         }
         sheet.resumePaint();
         this.cellStyle.cellColor = value;
+        this.visibleCellColorPicker = false;
       },
 
       /**
@@ -881,6 +924,7 @@ export default {
         }
         sheet.resumePaint();
         this.cellStyle.cellColor = value;
+        this.visibleCellBgColorPicker = false;
       },
 
       /**
@@ -983,12 +1027,12 @@ export default {
 
     },
     watch: {
-      visibleCellColorPicker: function (newVal) {
-        this.$refs.cellColorPicker.$el.children[0].click()
-      },
-      visibleCellBgColorPicker: function (newVal) {
-        this.$refs.cellBgColorPicker.$el.children[0].click()
-      },
+      // visibleCellColorPicker: function (newVal) {
+      //   this.$refs.cellColorPicker.$el.children[0].click()
+      // },
+      // visibleCellBgColorPicker: function (newVal) {
+      //   this.$refs.cellBgColorPicker.$el.children[0].click()
+      // },
     }
   }
 

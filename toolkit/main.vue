@@ -116,24 +116,50 @@
 
       <!--字体/背景颜色-->
       <div style="position: relative;display: flex;">
-        <ButtonGroup>
-          <Button size="small" type="text" @click.stop="cellColorFunc">
+        <Dropdown trigger="custom" :visible="visibleCellColorPicker">
+          <Button size="small" type="text" @click="cellColorFunc">
             <Tooltip content="字体颜色" :delay="tipsDelay">
               <i class="spreadfont spreadzitiyanse"></i>
               <Icon type="ios-arrow-down"></Icon>
             </Tooltip>
           </Button>
-          <Button size="small" type="text" @click.stop="cellColorBgFunc">
+          <DropdownMenu slot="list">
+            <div class="toolkit-color-wrapper">
+              <i class="toolkit-color-item" v-for="item in colors" :key="item.key" :style="{backgroundColor: '#' + item.key}" :title="item.value" @click="setFontColor('#' + item.key)"></i>
+            </div>
+          </DropdownMenu>
+        </Dropdown>
+        <Dropdown trigger="custom" :visible="visibleCellBgColorPicker">
+          <Button size="small" type="text" @click="cellColorBgFunc">
             <Tooltip content="背景颜色" :delay="tipsDelay">
               <i class="spreadfont spreadbeijingyanse"></i>
               <Icon type="ios-arrow-down"></Icon>
             </Tooltip>
           </Button>
-        </ButtonGroup>
-        <ColorPicker ref="cellColorPicker" v-model="cellStyle.cellColor" @on-change="setFontColor"
-                     class="toolkit-color-picker"/>
-        <ColorPicker ref="cellBgColorPicker" v-model="cellStyle.cellBgColor" @on-change="setBgColor"
-                     class="toolkit-color-picker--bg"/>
+          <DropdownMenu slot="list">
+            <div class="toolkit-color-wrapper">
+              <i class="toolkit-color-item" v-for="item in colors" :key="item.key" :style="{backgroundColor: '#' + item.key}" :title="item.value" @click="setBgColor('#' + item.key)"></i>
+            </div>
+          </DropdownMenu>
+        </Dropdown>
+<!--        <ButtonGroup>-->
+<!--          <Button size="small" type="text" @click.stop="cellColorFunc">-->
+<!--            <Tooltip content="字体颜色" :delay="tipsDelay">-->
+<!--              <i class="spreadfont spreadzitiyanse"></i>-->
+<!--              <Icon type="ios-arrow-down"></Icon>-->
+<!--            </Tooltip>-->
+<!--          </Button>-->
+<!--          <Button size="small" type="text" @click.stop="cellColorBgFunc">-->
+<!--            <Tooltip content="背景颜色" :delay="tipsDelay">-->
+<!--              <i class="spreadfont spreadbeijingyanse"></i>-->
+<!--              <Icon type="ios-arrow-down"></Icon>-->
+<!--            </Tooltip>-->
+<!--          </Button>-->
+<!--        </ButtonGroup>-->
+<!--        <ColorPicker ref="cellColorPicker" v-model="cellStyle.cellColor" @on-change="setFontColor"-->
+<!--                     class="toolkit-color-picker"/>-->
+<!--        <ColorPicker ref="cellBgColorPicker" v-model="cellStyle.cellBgColor" @on-change="setBgColor"-->
+<!--                     class="toolkit-color-picker&#45;&#45;bg"/>-->
       </div>
 
       <!--边框-->
@@ -428,6 +454,20 @@
 
   .ivu-input-icon-validate {
     display: none !important;
+  }
+
+  .toolkit-color-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 150px;
+  }
+
+  .toolkit-color-item {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #eee;
+    margin: 5px;
+    cursor: pointer;
   }
 
   .toolkit-color-picker {
