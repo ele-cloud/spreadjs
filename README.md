@@ -2,6 +2,8 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@ele-cloud/spreadjs"><img alt="npm" src="https://img.shields.io/npm/v/@ele-cloud/spreadjs"></a>
   <a href="https://travis-ci.com/ele-cloud/spreadjs.svg?branch=master"><img src="https://img.shields.io/travis/ele-cloud/spreadjs.svg" /></a>
+  <a href="https://www.npmjs.com/package/@ele-cloud/spreadjs"><img alt="npm" src="https://img.shields.io/npm/dm/@ele-cloud/spreadjs?color=orange"></a>
+  <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" /></a>
 </p>
 🦑  为大象慧云spreadjs打造功能性的封装，让前端只需专注业务开发，无需了解spreadjs繁琐的配置。 
 
