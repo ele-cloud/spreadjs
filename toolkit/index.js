@@ -7,7 +7,7 @@
 
 import Vue from 'vue/dist/vue.esm.js';
 import Toolkit from './main.vue';
-import { Button, Select, Input, Option, Dropdown, DropdownMenu, DropdownItem, Icon, ButtonGroup, ColorPicker, Tooltip, Poptip } from 'iview';
+import { Button, Select, Input, Option, Dropdown, DropdownMenu, DropdownItem, Icon, ButtonGroup, ColorPicker, Tooltip, Poptip, Modal } from 'iview';
 import 'iview/dist/styles/iview.css';
 
 /**
@@ -27,6 +27,7 @@ export default function index(dom) {
   Vue.component('ColorPicker', ColorPicker);
   Vue.component('Tooltip', Tooltip);
   Vue.component('Poptip', Poptip);
+  Vue.component('Modal', Modal);
 
   new Vue({
     el: dom,

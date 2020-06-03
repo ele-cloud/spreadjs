@@ -2,7 +2,7 @@ import pako from 'pako';
 import FaverSaver from 'file-saver';
 import addWorkBookTag from '../legacy/tagId';
 
-const excelIo = new GC.Spread.Excel.IO();
+const excelIo = new window.GC.Spread.Excel.IO();
 
 /**
  * base64 to blob.

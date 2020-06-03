@@ -1,28 +1,17 @@
-/**
- * @file no useful, need to refator this
- * @author Angus Yang
- * @date 2020/6/2
- * @description
- */
-
 const path = require('path');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const vueLoaderConfig = require('./vue-loader.conf');
 const { VueLoaderPlugin } = require('vue-loader')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, '../lib'),
     publicPath: '/dist/',
-    filename: 'index.js',
-    chunkFilename: '[name].js',
-    // libraryExport: 'default',
-    library: 'ELE-SPREADJS',
-    libraryTarget: 'commonjs2'
+    filename: '[name].js',
+    chunkFilename: '[id].js'
   },
   optimization: {
     minimizer: [
@@ -36,34 +25,17 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json']
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      main: path.resolve(__dirname, '../src'),
+    }
   },
   module: {
     rules: [
       {
         test: /\.(jsx?|babel|es6)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            ['@babel/preset-env', {
-              targets: {
-                browsers: ['last 2 versions', 'not ie <= 10']
-              }
-            }
-            ]
-          ],
-          plugins: [
-            ['@babel/transform-runtime', {
-              corejs: 3,
-            }],
-            ["import", {
-              "libraryName": "iview",
-              "libraryDirectory": "src/components"
-            }],
-            "@babel/plugin-syntax-dynamic-import"
-          ]
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.less$ /,
@@ -75,8 +47,7 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
+        loader: 'vue-loader'
       },
       {
         test: /\.css$/,
@@ -94,7 +65,6 @@ module.exports = {
   },
   plugins: [
     new ProgressBarPlugin(),
-    new VueLoaderPlugin(),
-    new FriendlyErrorsWebpackPlugin()
+    new VueLoaderPlugin()
   ]
 }

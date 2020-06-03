@@ -1,0 +1,32 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": 3,
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "not ie <= 10"
+          ]
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-vue-jsx",
+    [
+      "import",
+      {
+        "libraryName": "iview",
+        "libraryDirectory": "src/components"
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["istanbul"]
+    }
+  }
+}
