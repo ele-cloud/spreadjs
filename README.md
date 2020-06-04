@@ -2,6 +2,7 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/@ele-cloud/spreadjs"><img alt="npm" src="https://img.shields.io/npm/v/@ele-cloud/spreadjs"></a>
   <a href="https://travis-ci.com/ele-cloud/spreadjs.svg?branch=master"><img src="https://img.shields.io/travis/ele-cloud/spreadjs.svg" /></a>
+  <a href='https://coveralls.io/github/ele-cloud/spreadjs?branch=v13.3.3-alpha.2'><img src='https://coveralls.io/repos/github/ele-cloud/spreadjs/badge.svg?branch=v13.3.3-alpha.2' alt='Coverage Status' /></a>
   <a href="https://www.npmjs.com/package/@ele-cloud/spreadjs"><img alt="npm" src="https://img.shields.io/npm/dm/@ele-cloud/spreadjs?color=orange"></a>
   <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" /></a>
 </p>
