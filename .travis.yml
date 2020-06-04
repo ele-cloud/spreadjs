@@ -22,4 +22,4 @@ after_deploy:
   - echo npm published!😊
 
 after_success:
-#  - cat ./test/unit/coverage/lcov.info | ./node_modules/.bin/coveralls
+  - cat ./test/unit/coverage/lcov.info | ./node_modules/.bin/coveralls
