@@ -24,6 +24,15 @@ function handleExcelJson(data, index) {
             worksheet.setTag(row, col, {
               tagId: random(),
             });
+            var reg = /{(.*?)}/g;
+            var textReg = RegExp(/手工录入/);
+            if (reg.test(worksheet.getValue(row, col)) || textReg.test(worksheet.getValue(row, col))) {
+              console.log(worksheet.getValue(row, col))
+              const style = worksheet.getStyle(row, col) ||
+                new GC.Spread.Sheets.Style();
+              style.backColor = "";
+              worksheet.setStyle(row, col, style, GC.Spread.Sheets.SheetArea.viewport);
+            }
           }
         } else {
           worksheet.setTag(row, col, {
