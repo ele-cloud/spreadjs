@@ -1,6 +1,6 @@
 {
   "name": "@ele-cloud/spreadjs",
-  "version": "13.3.4",
+  "version": "13.3.3",
   "description": "SpreadJS for DaXiangHuiYun.",
   "main": "src/index.js",
   "files": [
