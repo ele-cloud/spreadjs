@@ -24,10 +24,10 @@ function handleExcelJson(data, index) {
             worksheet.setTag(row, col, {
               tagId: random(),
             });
-            var reg = /{(.*?)}/g;
-            var textReg = RegExp(/手工录入/);
-            if (reg.test(worksheet.getValue(row, col)) || textReg.test(worksheet.getValue(row, col))) {
-              console.log(worksheet.getValue(row, col))
+            const reg = /^{(.*?)}$/g;
+            const textReg = /^手工录入$/;
+            const textRegCommit = /^表项_/;
+            if (reg.test(worksheet.getValue(row, col)) || textReg.test(worksheet.getValue(row, col)) || textRegCommit.test(worksheet.getValue(row, col))) {
               const style = worksheet.getStyle(row, col) ||
                 new GC.Spread.Sheets.Style();
               style.backColor = "";
