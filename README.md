@@ -116,7 +116,7 @@ module.exports = {
 }
 ```
 
-## iview 按需引入
+## 3. iview 按需引入
 
 1. 安装 babel-plugin-import 
 
