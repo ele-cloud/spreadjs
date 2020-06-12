@@ -10,7 +10,7 @@
 
 # 准备工作
 
-### 依赖引入
+## 1. 依赖引入
 
 ```html
 <link rel="styleSheet" href="gc.spread.sheets.xx.x.x.css" />
@@ -25,9 +25,66 @@
 <script src="gc.spread.sheets.print.xx.x.x.min.js" type="text/javascript"></script>
 ```
 
-### 后编译
+通过 cdn 引入，目前含有的版本为 `13.1.0`。
 
-1. npm
+> cdn 域名：http://ele-cloud.90paw.com/
+
+**实现方式：**
+
+方案一：直接在 index.html 引入
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="styleSheet" href="//ele-cloud.90paw.com/gc.spread.sheets.excel2013white.13.1.0.css" />
+  </head>
+  <body>
+  </body>
+  <script typs='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.all.13.1.0.min.js'></script>
+  <script typs='text/javascript' src='//ele-cloud.90paw.com/gc.spread.excelio.13.1.0.min.js'></script>
+  <script typs='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.resources.zh.13.1.0.min.js'></script>
+  <script typs='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.print.13.1.0.min.js'></script>
+</html>
+```
+
+方案二：
+
+1. 安装 html-webpack-externals-plugin
+
+```bash
+npm i html-webpack-externals-plugin -D
+```
+
+2. webpack config file
+
+```javascript
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
+new HtmlWebpackExternalsPlugin({
+  externals: [
+    {
+      module: 'spread-gc',
+      entry: '//ele-cloud.90paw.com/gc.spread.sheets.all.13.1.0.min.js'
+    }, {
+      module: 'spread-excel',
+      entry: '//ele-cloud.90paw.com/gc.spread.excelio.13.1.0.min.js',
+    }, {
+      module: 'spread-zh',
+      entry: '//ele-cloud.90paw.com/gc.spread.sheets.resources.zh.13.1.0.min.js'
+    }, {
+      module: 'spread-print',
+      entry: '//ele-cloud.90paw.com/gc.spread.sheets.print.13.1.0.min.js'
+    }, {
+      module: 'spread-excel2013white',
+      entry: '//ele-cloud.90paw.com/gc.spread.sheets.excel2013white.13.1.0.css'
+    }
+  ]
+})
+```
+
+## 2. 后编译
+
+1. 安装 webpack-post-compile-plugin 
 
 ```bash
 npm install webpack-post-compile-plugin
@@ -54,9 +111,9 @@ module.exports = {
 }
 ```
 
-### iview 按需引入
+## iview 按需引入
 
-1. babel-plugin-import 安装
+1. 安装 babel-plugin-import 
 
 ```bash
 npm install babel-plugin-import -D
@@ -74,7 +131,7 @@ plugin: [
 ]
 ```
 
-# 安装
+## 4. 安装
 
 ```bash
 npm install @ele-cloud/spreadjs
@@ -94,14 +151,14 @@ Peer Dependencies:
 
 # 快速应用
 
-### 注入授权码
+## 注入授权码
 
 ```javascript
 import { injectLicenseKey } from '@ele-cloud/spreadjs';
 injectLicenseKey('授权码xxx');
 ```
 
-### 初始化
+## 初始化
 
 ```javascript
 import initSpread from '@ele-cloud/spreadjs';
@@ -119,7 +176,7 @@ const options = {
 const workbook = initSpread(exceldom, json, options);
 ```
 
-### 导入导出excel
+## 导入导出excel
 
 ```javascript
 import { excel } from '@ele-cloud/spreadjs';
@@ -145,7 +202,7 @@ excel.importFunc('xlsx', { tagId: true, pako: true }).then(res => {
 excel.exportFunc(json, { filename: '自定义文件名称.xlsx', pako: true }).then((filename) => {})
 ```
 
-### SpreadJS相关
+## SpreadJS相关
 
 ```javascript
 import { GC, Excel } from '@ele-cloud/spreadjs';
