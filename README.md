@@ -41,10 +41,10 @@
   </head>
   <body>
   </body>
-  <script typs='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.all.13.1.0.min.js'></script>
-  <script typs='text/javascript' src='//ele-cloud.90paw.com/gc.spread.excelio.13.1.0.min.js'></script>
-  <script typs='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.resources.zh.13.1.0.min.js'></script>
-  <script typs='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.print.13.1.0.min.js'></script>
+  <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.all.13.1.0.min.js'></script>
+  <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.excelio.13.1.0.min.js'></script>
+  <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.resources.zh.13.1.0.min.js'></script>
+  <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.print.13.1.0.min.js'></script>
 </html>
 ```
 
