@@ -36,12 +36,12 @@
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="styleSheet" href="//ele-cloud.90paw.com/gc.spread.sheets.excel2013white.13.1.0.css" />
-  <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.all.13.1.0.min.js'></script>
-  <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.excelio.13.1.0.min.js'></script>
-  <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.resources.zh.13.1.0.min.js'></script>
-  <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.print.13.1.0.min.js'></script>
+  <head>
+    <link rel="styleSheet" href="//ele-cloud.90paw.com/gc.spread.sheets.excel2013white.13.1.0.css" />
+    <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.all.13.1.0.min.js'></script>
+    <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.excelio.13.1.0.min.js'></script>
+    <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.resources.zh.13.1.0.min.js'></script>
+    <script type='text/javascript' src='//ele-cloud.90paw.com/gc.spread.sheets.print.13.1.0.min.js'></script>
   </head>
 </html>
 ```
