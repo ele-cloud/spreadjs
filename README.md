@@ -60,26 +60,33 @@ npm i html-webpack-externals-plugin -D
 
 ```javascript
 const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
-new HtmlWebpackExternalsPlugin({
-  externals: [
-    {
-      module: 'spread-gc',
-      entry: '//ele-cloud.90paw.com/gc.spread.sheets.all.13.1.0.min.js'
-    }, {
-      module: 'spread-excel',
-      entry: '//ele-cloud.90paw.com/gc.spread.excelio.13.1.0.min.js',
-    }, {
-      module: 'spread-zh',
-      entry: '//ele-cloud.90paw.com/gc.spread.sheets.resources.zh.13.1.0.min.js'
-    }, {
-      module: 'spread-print',
-      entry: '//ele-cloud.90paw.com/gc.spread.sheets.print.13.1.0.min.js'
-    }, {
-      module: 'spread-excel2013white',
-      entry: '//ele-cloud.90paw.com/gc.spread.sheets.excel2013white.13.1.0.css'
-    }
+
+module.exports = {
+  // ...
+  plugins: [
+    // ...
+    new HtmlWebpackExternalsPlugin({
+      externals: [
+        {
+          module: 'spread-gc',
+          entry: '//ele-cloud.90paw.com/gc.spread.sheets.all.13.1.0.min.js'
+        }, {
+          module: 'spread-excel',
+          entry: '//ele-cloud.90paw.com/gc.spread.excelio.13.1.0.min.js',
+        }, {
+          module: 'spread-zh',
+          entry: '//ele-cloud.90paw.com/gc.spread.sheets.resources.zh.13.1.0.min.js'
+        }, {
+          module: 'spread-print',
+          entry: '//ele-cloud.90paw.com/gc.spread.sheets.print.13.1.0.min.js'
+        }, {
+          module: 'spread-excel2013white',
+          entry: '//ele-cloud.90paw.com/gc.spread.sheets.excel2013white.13.1.0.css'
+        }
+      ]
+    })
   ]
-})
+}
 ```
 
 ## 2. 后编译
