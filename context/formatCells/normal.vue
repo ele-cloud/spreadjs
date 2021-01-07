@@ -10,7 +10,7 @@
       currentIndex: function(newVal) {
         if (newVal === 0) {
           this.data.value = 'normal';
-          this.spread.getActiveSheet().getCell(0, 0).formatter(undefined);
+          this.spread.getActiveSheet().getCell(0, 0).formatter(this.data.value);
           this.data.sampleText = this.spread.getActiveSheet().getText(0, 0);
         }
       }

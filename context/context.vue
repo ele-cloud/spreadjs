@@ -459,7 +459,7 @@
         this.selectIndex = index;
       },
       setFormat() {
-        const res = this.formatCellInfo.value === 'normal' ? undefined : this.formatCellInfo.value;
+        const res = this.formatCellInfo.value;
         this.worksheet.getCell(this.clickCell.row, this.clickCell.col).formatter(res);
         this.formatCellsDialogVisible = false;
       },
