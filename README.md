@@ -27,7 +27,7 @@
 
 通过 cdn 引入，目前含有的版本为 `13.1.0`。
 
-> cdn 域名：http://ele-cloud.90paw.com/
+> cdn 域名：http://ele-cloud.90paw.com/ 【服务已暂停，请使用官方提供的 cdn】
 
 **实现方式：**
 
