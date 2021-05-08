@@ -1,6 +1,6 @@
 {
   "name": "@ele-cloud/spreadjs",
-  "version": "12.1.2",
+  "version": "14.0.10",
   "description": "大象慧云spreadjs",
   "main": "lib/index.js",
   "scripts": {
@@ -20,10 +20,10 @@
   },
   "homepage": "https://github.com/ele-cloud/spreadjs#readme",
   "dependencies": {
-    "@grapecity/spread-excelio": "12.2.2",
-    "@grapecity/spread-sheets": "12.2.2",
-    "@grapecity/spread-sheets-print": "12.2.2",
-    "@grapecity/spread-sheets-resources-zh": "12.2.2",
+    "@grapecity/spread-excelio": "14.0.10",
+    "@grapecity/spread-sheets": "14.0.10",
+    "@grapecity/spread-sheets-print": "14.0.10",
+    "@grapecity/spread-sheets-resources-zh": "14.0.10",
     "file-saver": "^2.0.2",
     "jquery": "^3.4.1",
     "pako": "^1.0.10"
